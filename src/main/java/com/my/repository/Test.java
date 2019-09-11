@@ -14,10 +14,10 @@ public class Test {
         SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserRepository userRepository = sqlSession.getMapper(UserRepository.class);
-//        User user = new User("jiang", 18);
-//        System.out.println(userRepository.insert(user));
-//        System.out.println(user.getId());
-//        sqlSession.commit();
+        User user = new User("jiang", 18);
+        System.out.println(userRepository.insert(user));
+        System.out.println(user.getId());
+        sqlSession.commit();
 
         System.out.println(userRepository.findAll());
         User user2 = userRepository.findById(2);
