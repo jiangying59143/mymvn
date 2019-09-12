@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.repository.ClassesRepository">
+    <resultMap id="classesMap" type="com.my.domain.Classes">
+        <id property="id" column="cid"></id>
+        <result property="name" column="name"></result>
+        <collection property="userList" ofType="com.my.domain.User">
+            <id property="id" column="uid"></id>
+            <result property="userName" column="username"></result>
+            <result property="age" column="age"></result>
+        </collection>
+    </resultMap>
+
+    <select id="findById" resultMap="classesMap" parameterType="int">
+        select u.id uid,u.username username,u.age age, c.id cid, c.name name from user u, classes c where u.cid=c.id and c.id=#{id}
+    </select>
+
+</mapper>

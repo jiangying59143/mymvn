@@ -24,6 +24,19 @@ public class UserRepositoryTest {
     }
 
     @Test
+    public void testOriginalMethod() {
+        InputStream inputStream = UserRepositoryTest.class.getClassLoader().getResourceAsStream("config.xml");
+        SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
+        SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        String statement = "com.my.repository.UserRepository.insert";
+        User user = new User("jiangying", 30);
+        sqlSession.insert(statement, user);
+        sqlSession.commit();
+        System.out.println(user);
+    }
+
+    @Test
     public void insert() {
         User user = new User("jiang", 18);
         userRepository.insert(user);
@@ -87,5 +100,10 @@ public class UserRepositoryTest {
         System.out.println(userRepository.update(new User(user.getId(), "jiangshen", null)));
         sqlSession.commit();
         System.out.println(userRepository.findById(user.getId()));
+    }
+
+    @Test
+    public void findFullUserById() {
+        System.out.println(userRepository.findFullUserById(2));
     }
 }

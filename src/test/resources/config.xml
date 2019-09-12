@@ -15,14 +15,14 @@
             <transactionManager type="JDBC"></transactionManager>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/mybatis?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC" />
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai" />
                 <property name="username" value="root"/>
                 <property name="password" value="jiangying"/>
             </dataSource>
         </environment>
     </environments>
     <mappers>
-        <mapper resource="com\my\domain\UserMapper.xml" />
-        <mapper resource="com/my/repository/UserMapper.xml" />
+        <mapper resource="com/my/mapper/ClassesMapper.xml" />
+        <mapper resource="com/my/mapper/UserMapper.xml" />
     </mappers>
 </configuration>

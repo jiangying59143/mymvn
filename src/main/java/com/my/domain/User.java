@@ -6,6 +6,18 @@ public class User {
 
     private Integer age;
 
+    private Classes classes;
+
+    public User() {
+    }
+
+    public User(Integer id, String userName, Integer age, Classes classes) {
+        Id = id;
+        this.userName = userName;
+        this.age = age;
+        this.classes = classes;
+    }
+
     public User(String userName, Integer age) {
         this.userName = userName;
         this.age = age;
@@ -15,6 +27,12 @@ public class User {
         Id = id;
         this.userName = userName;
         this.age = age;
+    }
+
+    public User(String userName, Integer age, Classes classes) {
+        this.userName = userName;
+        this.age = age;
+        this.classes = classes;
     }
 
     public Integer getId() {
@@ -41,12 +59,21 @@ public class User {
         this.age = age;
     }
 
+    public Classes getClasses() {
+        return classes;
+    }
+
+    public void setClasses(Classes classes) {
+        this.classes = classes;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "Id=" + Id +
                 ", userName='" + userName + '\'' +
                 ", age=" + age +
+                ", classes=" + classes +
                 '}';
     }
 }

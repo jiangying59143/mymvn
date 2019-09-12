@@ -11,6 +11,8 @@ public interface UserRepository {
 
     User findById(Integer id);
 
+    User findFullUserById(int id);
+
     User findById2(int id);
 
     List<User> findByUserAndAge(String userName, Integer age);

@@ -2,6 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.my.repository.UserRepository">
+    <resultMap id="userMap" type="com.my.domain.User">
+        <id property="id" column="uid"/>
+        <result property="userName" column="username"/>
+        <result property="age" column="age"/>
+        <association property="classes" javaType="com.my.domain.Classes">
+            <id property="id" column="cid"/>
+            <result property="name" column="name"/>
+        </association>
+    </resultMap>
+
+    <select id="findFullUserById" resultMap="userMap" parameterType="int">
+        select u.id uid,u.username username,u.age age, c.id cid, c.name name from user u, classes c where u.cid=c.id and u.id=#{id}
+    </select>
+
     <insert id="insert" parameterType="com.my.domain.User"  useGeneratedKeys="true" keyProperty="id">
         insert into user(userName, age) value(#{userName}, #{age})
     </insert>
