@@ -13,7 +13,7 @@
     </resultMap>
 
     <select id="findById" resultMap="classesMap" parameterType="int">
-        select u.id uid,u.username username,u.age age, c.id cid, c.name name from user u, classes c where u.cid=c.id and c.id=#{id}
+        select u.id uid,u.username username,u.age age, c.id cid, c.name name from t_user u, t_class c where u.cid=c.id and c.id=#{id}
     </select>
 
 </mapper>

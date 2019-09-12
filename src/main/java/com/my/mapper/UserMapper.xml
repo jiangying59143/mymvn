@@ -13,39 +13,39 @@
     </resultMap>
 
     <select id="findFullUserById" resultMap="userMap" parameterType="int">
-        select u.id uid,u.username username,u.age age, c.id cid, c.name name from user u, classes c where u.cid=c.id and u.id=#{id}
+        select u.id uid,u.username username,u.age age, c.id cid, c.name name from t_user u, t_class c where u.cid=c.id and u.id=#{id}
     </select>
 
     <insert id="insert" parameterType="com.my.domain.User"  useGeneratedKeys="true" keyProperty="id">
-        insert into user(userName, age) value(#{userName}, #{age})
+        insert into t_user(userName, age) value(#{userName}, #{age})
     </insert>
 
     <delete id="deleteById"  parameterType="java.lang.Integer">
-        delete from user where id=#{id}
+        delete from t_user where id=#{id}
     </delete>
 
     <select id="findAll" resultType="com.my.domain.User">
-        select * from user
+        select * from t_user
     </select>
 
     <select id="findById" resultType="com.my.domain.User" parameterType="java.lang.Integer">
-        select * from user where id=#{id}
+        select * from t_user where id=#{id}
     </select>
 
     <select id="findById2" resultType="com.my.domain.User" parameterType="int">
-        select * from user where id=#{id}
+        select * from t_user where id=#{id}
     </select>
 
     <select id="findByUserAndAge" resultType="com.my.domain.User">
-        select * from user where username=#{arg0} and age=#{arg1}
+        select * from t_user where username=#{arg0} and age=#{arg1}
     </select>
 
     <select id="findByUserAndAge2" resultType="com.my.domain.User">
-        select * from user where username=#{param1} and age=#{param2}
+        select * from t_user where username=#{param1} and age=#{param2}
     </select>
 
     <update id="update" parameterType="com.my.domain.User">
-        update user
+        update t_user
         <set>
             <if test="userName != null">
                 username=#{userName},
