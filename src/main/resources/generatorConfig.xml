@@ -18,6 +18,21 @@
         <javaClientGenerator type="XMLMAPPER"
                              targetPackage="com.my.generator.mapper" targetProject="./src/main/java">
         </javaClientGenerator>
-        <table tableName="t_account" domainObjectName="Account"></table>
+        <table tableName="t_user" domainObjectName="User"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false" selectByPrimaryKeyQueryId="false">
+            <!--根据数据库字段名称转成驼峰写法 -->
+            <!--写法问题： oracle 数据库，字段不区分大小写，数据库中全是大写，驼峰写法：设置false 字段名称在驼峰中使用下划线"_" 例如：file_name
+                转为fileName -->
+            <!--写法问题： mysql 数据库，字段区分大小写，驼峰写法：设置true时 字段名称正常写法 例如：fileName 转为fileName;
+                设置false 则是filename -->
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="MySql"
+                          identity="true" />
+            <oneToMany mappingTable="classes" column="id" joinColumn="cid" />
+            <!-- 有对应实体的时候，把字段忽略生成 -->
+            <!--<ignoreColumn column="dept" />-->
+        </table>
     </context>
 </generatorConfiguration>
