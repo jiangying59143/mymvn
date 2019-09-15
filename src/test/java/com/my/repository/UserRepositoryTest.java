@@ -104,6 +104,8 @@ public class UserRepositoryTest {
 
     @Test
     public void findFullUserById() {
-        System.out.println(userRepository.findFullUserById(2));
+        User user = userRepository.findFullUserById(2);
+        System.out.println(user);
+        System.out.println(user.getClasses());
     }
 }

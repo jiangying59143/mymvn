@@ -1,6 +1,8 @@
 package com.my.domain;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private Integer Id;
     private String userName;
 
@@ -73,7 +75,6 @@ public class User {
                 "Id=" + Id +
                 ", userName='" + userName + '\'' +
                 ", age=" + age +
-                ", classes=" + classes +
                 '}';
     }
 }
