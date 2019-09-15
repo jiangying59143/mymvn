@@ -3,9 +3,10 @@
 <configuration>
     <settings>
         <setting name="logImpl" value="STDOUT_LOGGING"/>
-        <setting name="lazyLoadTriggerMethods" value="" />
         <!-- 开启延迟加载 -->
         <setting name="lazyLoadingEnabled" value="true"/>
+        <!--fix延迟加载toString时候会执行子查询的问题-->
+        <setting name="lazyLoadTriggerMethods" value="" />
         <!-- 开启⼆二级缓存 不加好像也不影响 -->
         <!--<setting name="cacheEnabled" value="true"/>-->
     </settings>
