@@ -38,6 +38,9 @@ public class ClassesMapperTest {
     public void insertSelective() {
     }
 
+    /**
+     * 测试懒加载
+     */
     @Test
     public void selectByPrimaryKey() {
         Classes classes = classesMapper.selectByPrimaryKey(1);

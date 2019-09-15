@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="Administrator (generated)" id="1568476106727-1">
+        <createTable tableName="t_class">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValue="0" name="name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1568476106727-2">
+        <createTable tableName="t_course">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValue="0" name="name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1568476106727-3">
+        <createTable tableName="t_user">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="userName" type="VARCHAR(255)"/>
+            <column defaultValueComputed="NULL" name="age" type="INT"/>
+            <column defaultValueComputed="NULL" name="cid" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1568476106727-4">
+        <createTable tableName="t_user_course">
+            <column defaultValueComputed="NULL" name="uid" type="INT"/>
+            <column defaultValueComputed="NULL" name="coid" type="INT"/>
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1568476106727-5">
+        <createIndex indexName="FK__t_course" tableName="t_user_course">
+            <column defaultValueComputed="NULL" name="coid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1568476106727-6">
+        <createIndex indexName="FK__t_user" tableName="t_user_course">
+            <column defaultValueComputed="NULL" name="uid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1568476106727-7">
+        <createIndex indexName="FK_t_user_t_class" tableName="t_user">
+            <column defaultValueComputed="NULL" name="cid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1568476106727-8">
+        <addForeignKeyConstraint baseColumnNames="coid" baseTableName="t_user_course" constraintName="FK__t_course" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="t_course" />
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1568476106727-9">
+        <addForeignKeyConstraint baseColumnNames="uid" baseTableName="t_user_course" constraintName="FK__t_user" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="t_user" />
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1568476106727-10">
+        <addForeignKeyConstraint baseColumnNames="cid" baseTableName="t_user" constraintName="FK_t_user_t_class" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="t_class" />
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1568509323035-1">
+        <insert tableName="t_class">
+            <column name="id" valueNumeric="1"/>
+            <column name="name" value="1班"/>
+        </insert>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1568509323035-2">
+        <insert tableName="t_course">
+            <column name="id" valueNumeric="1"/>
+            <column name="name" value="课程一"/>
+        </insert>
+        <insert tableName="t_course">
+            <column name="id" valueNumeric="2"/>
+            <column name="name" value="课程二"/>
+        </insert>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1568509323035-3">
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="1"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid" valueNumeric="1"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="2"/>
+            <column name="userName" value="jiangshen"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid" valueNumeric="1"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="3"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid" valueNumeric="1"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="4"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="5"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="6"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="7"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="8"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="9"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="10"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="11"/>
+            <column name="userName" value="jiangshen"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="12"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="13"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="14"/>
+            <column name="userName" value="jiangshen"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="15"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="16"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="17"/>
+            <column name="userName" value="jiangying"/>
+            <column name="age" valueNumeric="30"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="18"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="19"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="20"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="21"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="22"/>
+            <column name="userName" value="jiangshen"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="23"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="24"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="25"/>
+            <column name="userName" value="jiangying"/>
+            <column name="age" valueNumeric="30"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="26"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+        <insert tableName="t_user">
+            <column name="id" valueNumeric="27"/>
+            <column name="userName" value="jiang"/>
+            <column name="age" valueNumeric="18"/>
+            <column name="cid"/>
+        </insert>
+    </changeSet>
+    <changeSet author="Administrator (generated)" id="1568509323035-4">
+        <insert tableName="t_user_course">
+            <column name="uid" valueNumeric="1"/>
+            <column name="coid" valueNumeric="1"/>
+            <column name="id" valueNumeric="1"/>
+        </insert>
+        <insert tableName="t_user_course">
+            <column name="uid" valueNumeric="1"/>
+            <column name="coid" valueNumeric="2"/>
+            <column name="id" valueNumeric="2"/>
+        </insert>
+        <insert tableName="t_user_course">
+            <column name="uid" valueNumeric="3"/>
+            <column name="coid" valueNumeric="1"/>
+            <column name="id" valueNumeric="3"/>
+        </insert>
+        <insert tableName="t_user_course">
+            <column name="uid" valueNumeric="3"/>
+            <column name="coid" valueNumeric="2"/>
+            <column name="id" valueNumeric="4"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

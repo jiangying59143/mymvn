@@ -14,17 +14,24 @@ public class ClassesRepositoryTest {
 
     ClassesRepository classesRepository;
 
+    SqlSessionFactory sqlSessionFactory;
+
     @Before
     public void setUp() throws Exception {
         InputStream inputStream = ClassesRepositoryTest.class.getClassLoader().getResourceAsStream("config.xml");
         SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
-        SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(inputStream);
+        sqlSessionFactory = sqlSessionFactoryBuilder.build(inputStream);
         sqlSession = sqlSessionFactory.openSession();
         classesRepository = sqlSession.getMapper(ClassesRepository.class);
     }
 
     @Test
     public void findById() {
+        System.out.println(classesRepository.findById(1));
+        sqlSession.close();
+
+        sqlSession = sqlSessionFactory.openSession();
+        classesRepository = sqlSession.getMapper(ClassesRepository.class);
         System.out.println(classesRepository.findById(1));
     }
 }
