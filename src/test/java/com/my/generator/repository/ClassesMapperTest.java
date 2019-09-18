@@ -1,3 +1,4 @@
+/*
 package com.my.generator.repository;
 
 import com.my.generator.domain.Classes;
@@ -38,9 +39,11 @@ public class ClassesMapperTest {
     public void insertSelective() {
     }
 
-    /**
+    */
+/**
      * 测试懒加载
-     */
+     *//*
+
     @Test
     public void selectByPrimaryKey() {
         Classes classes = classesMapper.selectByPrimaryKey(1);
@@ -63,4 +66,4 @@ public class ClassesMapperTest {
     @Test
     public void updateBatchByPrimaryKeySelective() {
     }
-}
+}*/

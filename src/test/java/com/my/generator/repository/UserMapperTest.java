@@ -1,3 +1,4 @@
+/*
 package com.my.generator.repository;
 
 import com.my.generator.domain.User;
@@ -30,9 +31,11 @@ public class UserMapperTest {
         userMapper = sqlSession.getMapper(UserMapper.class);
     }
 
-    /**
+    */
+/**
      * 懒加载测试 只针对不同mapper文件，同一个mapper文件还是会全部打印出来
-     */
+     *//*
+
     @Test
     public void selectByPrimaryKey() {
         User user = userMapper.selectByPrimaryKey(1);
@@ -45,9 +48,11 @@ public class UserMapperTest {
         }
     }
 
-    /**
+    */
+/**
      * mybatis一级和二级 缓存测试
-     */
+     *//*
+
     @Test
     public void selectByPrimaryKey2() {
         User user = userMapper.selectByPrimaryKey(1);
@@ -66,4 +71,4 @@ public class UserMapperTest {
         System.out.println(user2.getClasses());
     }
 
-}
+}*/
